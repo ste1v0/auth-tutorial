@@ -34,11 +34,14 @@ export function LoginForm() {
         startTransition(() => {
             login(values)
                 .then((data) => {
-                    if (data.error) {
-                        setError(data.error)
-                    } else {
-                        setSuccess(data.success)
+                    if (data) {
+                        if (data.error) {
+                            setError(data.error)
+                        } else {
+                            setSuccess(data.success)
+                        }
                     }
+
                 })
         })
 
